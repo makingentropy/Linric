@@ -1,0 +1,23 @@
+{
+  "name": "linric",
+  "version": "1.0.0",
+  "description": "Homework for w08d04 ## Lin Lassiter ## Eric Chance",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makingentropy/Linric.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makingentropy/Linric/issues"
+  },
+  "homepage": "https://github.com/makingentropy/Linric#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
