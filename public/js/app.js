@@ -104,6 +104,7 @@ app.controller("MyController", ['$http', function($http){
 
   }
 
+  //only updateing the price......
   this.editCar = function(car){
     console.log(car._id);
     console.log(car.price)
@@ -127,6 +128,7 @@ app.controller("MyController", ['$http', function($http){
         console.log('the editTodo response', response);
         // remove the update input
         controller.showUpdate = false;
+        controller.newprice = NaN;
         //show the old and new todos
         controller.getCars();
         controller.description = '';
