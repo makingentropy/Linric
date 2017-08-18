@@ -12,22 +12,22 @@ router.get('/', (req, res)=>{
 //create
 router.post('/', (req, res)=>{
   console.log(req.body)
-    Cars.create(req.body, (err, createdTodo)=>{
-        res.json(createdTodo);
+    Cars.create(req.body, (err, createdCar)=>{
+        res.json(createdCar);
     });
 });
 
 //delete
 router.delete('/:id', (req, res)=>{
-    Cars.findByIdAndRemove(req.params.id, (err, deletedTodo)=>{
-        res.json(deletedTodo);
+    Cars.findByIdAndRemove(req.params.id, (err, deletedCar)=>{
+        res.json(deletedCar);
     });
 });
 
 //update
 router.put('/:id', (req, res)=>{
-    Cars.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedTodo)=>{
-        res.json(updatedTodo);
+    Cars.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedCar)=>{
+        res.json(updatedCar);
     });
 });
 
