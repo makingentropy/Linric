@@ -86,7 +86,7 @@ app.controller("MyController", ['$http', function($http){
   }
 
   this.deleteCar = function(car){
-    console.log('in the delete');
+    console.log('in the delete', car);
     $http({
       method: 'Delete',
       url: '/usedCars/' + car._id,
@@ -104,27 +104,30 @@ app.controller("MyController", ['$http', function($http){
 
   }
 
+  //only updateing the price......
   this.editCar = function(car){
-    console.log(car);
+    console.log('in editCar');
     $http({
       method: 'PUT',
       url: '/usedCars/' + car._id,
       //req.body is data
       data: {
-        make: car.make,
-        imagelink: car.imagelink,
-        model: car.model,
-        trim: car.trim,
-        year: car.year,
-        color: car.color,
-        price: car.price,
-        previousOwnerCount: car.previousOwnerCount
+        // make: this.newmake,
+        // imagelink: this.newimagelink,
+        // model: this.newmodel,
+        // trim: this.newtrim,
+        // year: this.newyear,
+        // color: this.newcolor,
+        price: this.newprice,
+        // previousOwnerCount: this.previousOwnerCount
       }
     }).then(
       function(response) {
-        console.log('the editTodo response', response);
+        // remove the update input
+        controller.showUpdate = false;
+        controller.newprice = NaN;
         //show the old and new todos
-        controller.getTodos();
+        controller.getCars();
         controller.description = '';
       },
       function(err){
