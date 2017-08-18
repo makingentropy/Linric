@@ -26,9 +26,12 @@
             <img class="car-image" src="{{cars.imagelink}}"/>
           </div>
           <div class="car-footer">${{cars.price}}.95</div>
+            <!-- Delete inventory -->
+            <button class="delete-btn" ng-click="ctrl.deleteCar(cars)" type="button" name="button">Delete</button>
+            <!-- Update inventory -->
+            <button class="update-btn" type="button" name="button">Update Price</button>
         </div>
       </div><br><br>
-<!-- Update inventory -->
 
 <!-- New inventory -->
     <div id="create-new">
@@ -46,6 +49,5 @@
       <br><br>
     </div>
     <br><br>
-<!-- Delete inventory -->
   </body>
 </html>

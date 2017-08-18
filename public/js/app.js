@@ -86,7 +86,7 @@ app.controller("MyController", ['$http', function($http){
   }
 
   this.deleteCar = function(car){
-    console.log('in the delete');
+    console.log('in the delete', car);
     $http({
       method: 'Delete',
       url: '/usedCars/' + car._id,
