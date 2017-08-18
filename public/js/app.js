@@ -106,9 +106,7 @@ app.controller("MyController", ['$http', function($http){
 
   //only updateing the price......
   this.editCar = function(car){
-    console.log(car._id);
-    console.log(car.price)
-    console.log(controller.newprice)
+    console.log('in editCar');
     $http({
       method: 'PUT',
       url: '/usedCars/' + car._id,
@@ -125,7 +123,6 @@ app.controller("MyController", ['$http', function($http){
       }
     }).then(
       function(response) {
-        console.log('the editTodo response', response);
         // remove the update input
         controller.showUpdate = false;
         controller.newprice = NaN;
