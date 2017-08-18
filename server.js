@@ -25,6 +25,9 @@ app.use(express.static('public'));
 
 const carsController = require('./controllers/usedCar.js');
 app.use('/usedCars', carsController);
+const seedController= require('./controllers/seedController.js');
+app.use('/seed', seedController);
+app.use(express.static('public'));
 
 mongoose.connect('mongodb://localhost:27017/carscrud');
 mongoose.connection.once('open', ()=>{
