@@ -2,22 +2,22 @@
 <html ng-app="MyApp">
   <head>
     <meta charset="utf-8">
-    <title>Used Cars</title>
+    <title>Classic Cars</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="/js/app.js" charset="utf-8"></script>
-     <link rel="stylesheet" href="/css/app.css">
+     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body ng-controller="MyController as ctrl">
-    <h1>Welcome to E & L Used cars</h1>
+    <h1>E & L Classics</h1>
     <!-- List inventory -->
     <h2>Inventory</h2>
     <ul ng-repeat="cars in ctrl.cars track by $index">
       <li ng-click="">{{cars.year}} {{cars.make}} ${{cars.price}}.95</li>
     </ul>
-<!-- New inventory -->
 <!-- Update inventory -->
-    <form ng-submit="ctrl.editCar(car)">
-      <input type="text" ng-model="ctrl.updatedescription" placeholder="description"/>
+
+<!-- New inventory -->
+    <form ng-submit="ctrl.createCar(car)">
       <input type="text" ng-model="ctrl.newmake" placeholder="Make">
       <input type="text" ng-model="ctrl.newmodel" placeholder="Model">
       <input type="text" ng-model="ctrl.newtrim" placeholder="Trim">
@@ -25,7 +25,7 @@
       <input type="text" ng-model="ctrl.newcolor" placeholder="Color">
       <input type="text" ng-model="ctrl.newprice" placeholder="$$">
       <input type="text" ng-model="ctrl.newimagelink" placeholder="image">
-      <input type="submit" value="Update">
+      <input type="submit" value="New">
     </form>
 
 <!-- Delete inventory -->
