@@ -4,16 +4,30 @@
     <meta charset="utf-8">
     <title>Classic Cars</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <script src="/js/app.js" charset="utf-8"></script>
-     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
   </head>
   <body ng-controller="MyController as ctrl">
-    <h1>E & L Classics</h1>
+    <div id="logo">
+      <h1>E & L Classics</h1>
+        <div id="logo-highlight"></div><div id="logo-highlight-B"></div>
+    </div>
     <!-- List inventory -->
-    <h2>Inventory</h2>
-    <ul ng-repeat="cars in ctrl.cars track by $index">
-      <li ng-click="">{{cars.year}} {{cars.make}} ${{cars.price}}.95</li>
-    </ul>
+    <div id="inventory-container">
+      <h2>Inventory</h2>
+      <div class="car-container" ng-repeat="cars in ctrl.cars track by $index">
+        <div class="car">
+          <div class="car-header">{{cars.year}} {{cars.make}} {{cars.model}}</div>
+          <div style=
+            "background-color:{{cars.color}}; width:200px; margin-left:30px;
+            height:100px; border: 1px solid #999999;" ng-click="">
+            <img class="car-image" src="{{cars.imagelink}}"/>
+          </div>
+          <div class="car-footer">${{cars.price}}.95</div>
+        </div>
+      </div>
 <!-- Update inventory -->
 
 <!-- New inventory -->
