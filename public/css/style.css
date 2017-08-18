@@ -109,8 +109,18 @@ button:hover {
 
 .update-btn {
   margin:0 20px;
+  color: #AAA;
+  font-size: 1.0em;
+  background-color: rgba(0,0,0,0);
+  border-style: hidden;
 }
 
+.delete-btn{
+  color: #AAA;
+  font-size: 1.0em;
+  background-color: rgba(0,0,0,0);
+  border-style: hidden;
+}
 .updateForm {
   position: absolute;
   visibility: visible;
