@@ -105,26 +105,30 @@ app.controller("MyController", ['$http', function($http){
   }
 
   this.editCar = function(car){
-    console.log(car);
+    console.log(car._id);
+    console.log(car.price)
+    console.log(controller.newprice)
     $http({
       method: 'PUT',
       url: '/usedCars/' + car._id,
       //req.body is data
       data: {
-        make: car.make,
-        imagelink: car.imagelink,
-        model: car.model,
-        trim: car.trim,
-        year: car.year,
-        color: car.color,
-        price: car.price,
-        previousOwnerCount: car.previousOwnerCount
+        // make: this.newmake,
+        // imagelink: this.newimagelink,
+        // model: this.newmodel,
+        // trim: this.newtrim,
+        // year: this.newyear,
+        // color: this.newcolor,
+        price: this.newprice,
+        // previousOwnerCount: this.previousOwnerCount
       }
     }).then(
       function(response) {
         console.log('the editTodo response', response);
+        // remove the update input
+        controller.showUpdate = false;
         //show the old and new todos
-        controller.getTodos();
+        controller.getCars();
         controller.description = '';
       },
       function(err){
