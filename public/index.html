@@ -26,9 +26,19 @@
             <img class="car-image" src="{{cars.imagelink}}"/>
           </div>
           <div class="car-footer">${{cars.price}}.95</div>
+            <!-- Delete inventory -->
+            <button class="delete-btn" ng-click="ctrl.deleteCar(cars)" type="button" name="button">Delete</button>
+            <!-- Update inventory -->
+            <button ng-click="ctrl.showUpdate=true; ctrl.carToUpdate=cars" class="update-btn" type="button" name="button">Update Price</button>
         </div>
       </div><br><br>
-<!-- Update inventory -->
+      <div class="upateForm">
+        <form ng-show="ctrl.showUpdate" ng-submit="ctrl.editCar(ctrl.carToUpdate)">
+          <input type="text" ng-model="ctrl.newprice" placeholder="$$"/>
+          <input type="submit" value="Update $$">
+        </form>
+      </div>
+
 
 <!-- New inventory -->
     <div id="create-new">
@@ -46,6 +56,5 @@
       <br><br>
     </div>
     <br><br>
-<!-- Delete inventory -->
   </body>
 </html>
