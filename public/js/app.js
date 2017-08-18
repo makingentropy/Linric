@@ -15,27 +15,33 @@ app.controller("MyController", ['$http', function($http){
       controller.cars = response.data;
     },
     function(err){
-      console.log('/todos GET error', err);
+      console.log('/usedCars GET error', err);
     }
   )};
-  // //show the todos
+  // //show the cars
   this.getCars();
   //
-  this.createTodo = function(){
-    console.log('creating a todo');
+  this.createCar = function(){
+    console.log('creating a car');
     $http({
       method: 'POST',
-      url: '/todos',
+      url: '/usedCars',
       //req.body is data
       data: {
-        description: this.description,
-        complete: this.complete
+        make: this.newmake,
+        imagelink: this.newimagelink,
+        model: this.newmodel,
+        trim: this.newtrim,
+        year: this.newyear,
+        color: this.newcolor,
+        price: this.newprice,
+        previousOwnerCount: this.previousOwnerCount
       }
     }).then(
       function(response) {
-        console.log('the createTodo response', response);
+        console.log('the createCar response', response);
         //show the old and new todos
-        controller.getTodos();
+        controller.getCars();
       },
       function(err){
         console.log('/todos POST error', err);
@@ -43,7 +49,7 @@ app.controller("MyController", ['$http', function($http){
     )
   }
 
-  this.updateTodo = function(car){
+  this.updateCars = function(car){
     console.log('in the update');
     // this.newComplete;
     // if (car.complete) {
@@ -102,7 +108,7 @@ app.controller("MyController", ['$http', function($http){
     console.log(car);
     $http({
       method: 'PUT',
-      url: '/todos/' + todo._id,
+      url: '/usedCars/' + car._id,
       //req.body is data
       data: {
         make: car.make,
@@ -122,7 +128,7 @@ app.controller("MyController", ['$http', function($http){
         controller.description = '';
       },
       function(err){
-        console.log('/todos POST error', err);
+        console.log('/usedCars POST error', err);
       }
     )
 
