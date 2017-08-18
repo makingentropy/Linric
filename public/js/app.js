@@ -9,17 +9,17 @@ app.controller("MyController", ['$http', function($http){
   this.getCars = function(){
     $http({
       method: 'GET',
-      url: "/todos"
+      url: "/usedCars"
     }).then(
       function(response){
-      controller.todos = response.data;
+      controller.cars = response.data;
     },
     function(err){
       console.log('/todos GET error', err);
     }
   )};
   // //show the todos
-  // this.getTodos();
+  this.getCars();
   //
   this.createTodo = function(){
     console.log('creating a todo');
@@ -98,28 +98,34 @@ app.controller("MyController", ['$http', function($http){
 
   }
 
-  // this.editTodo = function(todo){
-  //   console.log(todo);
-  //   $http({
-  //     method: 'PUT',
-  //     url: '/todos/' + todo._id,
-  //     //req.body is data
-  //     data: {
-  //       description: this.updatedescription,
-  //       complete: todo.complete
-  //     }
-  //   }).then(
-  //     function(response) {
-  //       console.log('the editTodo response', response);
-  //       //show the old and new todos
-  //       controller.getTodos();
-  //       controller.description = '';
-  //     },
-  //     function(err){
-  //       console.log('/todos POST error', err);
-  //     }
-  //   )
-  //
-  // }
+  this.editCar = function(car){
+    console.log(car);
+    $http({
+      method: 'PUT',
+      url: '/todos/' + todo._id,
+      //req.body is data
+      data: {
+        make: car.make,
+        imagelink: car.imagelink,
+        model: car.model,
+        trim: car.trim,
+        year: car.year,
+        color: car.color,
+        price: car.price,
+        previousOwnerCount: car.previousOwnerCount
+      }
+    }).then(
+      function(response) {
+        console.log('the editTodo response', response);
+        //show the old and new todos
+        controller.getTodos();
+        controller.description = '';
+      },
+      function(err){
+        console.log('/todos POST error', err);
+      }
+    )
+
+  }
 
 }]);
